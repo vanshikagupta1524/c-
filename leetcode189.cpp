@@ -12,6 +12,7 @@ vector<int> rotateArray(vector<int>& arr, int n) {
 }
 
 // rotate to left
+// brute force
 #include <iostream>
 using namespace std;
 void Rotatetoright(int arr[], int n, int k)
@@ -50,6 +51,8 @@ int main()
 }
 
 // rotate to left
+// brute force
+
 #include <iostream>
 using namespace std;
 void Rotatetoleft(int arr[], int n, int k)
@@ -86,3 +89,20 @@ int main()
   }
   return 0;
 }
+
+// optimal approach
+#include <vector>
+#include <algorithm> // Include the algorithm header for reverse function
+using namespace std;
+
+vector<int> rotateArray(vector<int> arr, int k) {
+    int n = arr.size();
+        k = k % n; // Adjust k if it's greater than array size
+
+  // Reverse the whole array
+                reverse(arr.begin(), arr.begin() + k); // Reverse the first k elements
+                    reverse(arr.begin() + k, arr.end()); // Reverse the rest of the elements
+                              reverse(arr.begin(), arr.end()); 
+
+                        return arr;
+                        }
